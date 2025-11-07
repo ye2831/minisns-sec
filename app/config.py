@@ -1,10 +1,12 @@
+# app/config.py
 import os
 from dotenv import load_dotenv
-load_dotenv()
+
+load_dotenv()  # .env 읽기
 
 class Config:
-    SECRET_KEY = os.getenv("SECRET_KEY", "change_me")
-    JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "change_me_jwt")
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "sqlite:///./dev.db")
+    SECRET_KEY = os.getenv("SECRET_KEY", "devsecret")
+    JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "devjwtsecret")
+    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "sqlite:///dev.db")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    VULNERABLE_MODE = os.getenv("VULNERABLE_MODE", "true").lower() in ("1","true","yes")
+    DEBUG = os.getenv("FLASK_ENV") == "development" or os.getenv("FLASK_DEBUG") == "1"
