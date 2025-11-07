@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>{{ post.title }}</title></head>
+<body>
+  <h1>{{ post.title }}</h1>
+  <p>by user {{ post.user_id }} on {{ post.created_at }}</p>
+  <div>
+    <!-- intentional unsafe rendering for training -->
+    {{ post.content | safe }}
+  </div>
+  <p><strong>VULNERABLE MODE: raw HTML is rendered</strong></p>
+</body>
+</html>

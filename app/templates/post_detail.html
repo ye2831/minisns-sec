@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>{{ post.title }}</title></head>
+<body>
+  <h1>{{ post.title }}</h1>
+  <p>by user {{ post.user_id }} on {{ post.created_at }}</p>
+  <div>
+    <!-- safe rendering: Jinja autoescape will escape content -->
+    {{ post.content }}
+  </div>
+</body>
+</html>
